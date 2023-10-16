@@ -1,0 +1,42 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    padding: 50px 120px 50px 120px;
+    background-color: var(--clr-almost-black);
+}
+.nav-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+} 
+.nav-footer > .right-section > .unordered-list__nav {
+    gap: 60px;
+}
+.footer-text__container {
+    width: 100%;
+    max-width: 530px;
+    color: white;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    align-self: flex-start;
+}
+.links-section {
+    display: flex;
+    align-self: flex-end;
+    gap: 26px;
+}
+.links-section > a {
+    cursor: pointer;
+}
+.links-section > a:hover {
+    filter: invert(51%) sepia(66%) saturate(484%) hue-rotate(338deg) brightness(99%) contrast(80%);
+}
+.copyright {
+    color: white;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    align-self: flex-start;
+} 
