@@ -1,13 +1,13 @@
 .first-section {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     height: 600px;
-    padding: 24px 120px 60px 120px;
+    padding: 24px 0px 60px 40px;
     background-image: url(../assets/home/desktop/image-hero.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
 }
 .new-product {
     width: 380px;
