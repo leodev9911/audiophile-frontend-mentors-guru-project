@@ -3,12 +3,14 @@ import { Route, Routes } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import PromoSection from '../components/PromoSection'
+import FirstSection from '../components/FirstSection'
 
 export default function App () {
   return (
     <>
       <header>
         <Header />
+        <FirstSection />
       </header>
       <main>
         <Routes>

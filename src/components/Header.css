@@ -4,6 +4,7 @@ nav {
     justify-content: space-between;
     width: 100%;
     height: 100px;
+    padding: 0px 120px 0px 120px;
     border-bottom: 1px solid var(--clr-white);
 }
 .right-section {
