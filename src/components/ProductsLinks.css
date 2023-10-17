@@ -1,0 +1,57 @@
+.products-links__container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+.product-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 86px;
+    width: 100%;
+    max-width: 360px;
+    height: 160px;
+    border-radius: 6px;
+    background-color: #f1f1f1;
+}
+.headphones {
+    position: relative;
+}
+.speaker {
+    position: relative;
+}
+.earphone {
+    position: relative;
+}
+.product-container > img {
+    position: absolute;
+    top: -62px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 100px;
+    height: 120px;
+}
+.earphone > img {
+    height: 100px;
+    top: -50px;
+}
+.product-container > h3 {
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+.product-container > a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.product-container > a > p {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--clr-orange);
+}
+.product-container > a > img {
+    width: 8px;
+    height: 10px;
+}
