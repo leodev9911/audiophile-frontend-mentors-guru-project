@@ -1,6 +1,6 @@
 .products-links__container {
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
     margin-bottom: 80px;
 }
 .product-container {
@@ -10,7 +10,8 @@
     gap: 10px;
     padding-top: 86px;
     width: 100%;
-    max-width: 360px;
+    min-width: 200px;
+    max-width: 500px;
     height: 160px;
     border-radius: 6px;
     background-color: #f1f1f1;
@@ -54,4 +55,11 @@
 .product-container > a > img {
     width: 8px;
     height: 10px;
+}
+@media(max-width: 900px) {
+    .products-links__container {
+        flex-direction: column;
+        align-items: center;
+        gap: 84px;
+    }
 }

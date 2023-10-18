@@ -9,6 +9,11 @@ nav {
     height: 100px;
     border-bottom: 1px solid var(--clr-white);
 }
+.logo-image {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
 .right-section {
     display: flex;
     align-items: center;
@@ -40,4 +45,21 @@ nav {
 }
 .icon-cart__container:hover {
     background: rgba(223, 223, 224, 0.2);
+}
+.icon-hamburger {
+    display: none;
+}
+@media(max-width: 900px) {
+    nav {
+        justify-content: flex-start;
+        gap: 30px;
+    }
+    .icon-hamburger {
+        display: block;
+        margin-right: auto;
+        cursor: pointer;
+    }
+    .unordered-list__nav {
+        display: none;
+    }
 }
