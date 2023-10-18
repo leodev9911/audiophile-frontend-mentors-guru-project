@@ -79,7 +79,6 @@
     gap: 20px;
     width: 100%;
     border-radius: 6px;
-    max-height: 325px;
 }
 .image-container {
     width: 50%;
@@ -145,5 +144,17 @@
     }
     .earphones-text__cotainer > h2 {
         font-size: 2rem;
+    }
+}
+@media(max-width: 560px) {
+    .earphones-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .image-container {
+        width: 100%;
+    }
+    .earphones-text__cotainer {
+        width: 100%;
     }
 }
