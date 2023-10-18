@@ -8,7 +8,11 @@ export default function HomeSection () {
     <section className='home-section'>
       <div className='speaker-container'>
         <div className='transparent-div' />
-        <img src={speakerZX9} alt='Speaker ZX9' />
+        <img
+          src={speakerZX9}
+          alt='Speaker ZX9'
+          className='speakerZx9'
+        />
         <div className='speaker-text__cotainer'>
           <h2>ZX9 SPEAKER</h2>
           <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound</p>
