@@ -16,6 +16,14 @@ export default function HomeSection () {
           </a>
         </div>
       </div>
+      <div className='speaker-zx7-container'>
+        <div className='speaker-zx7-text__cotainer'>
+          <h2>ZX7 SPEAKER</h2>
+          <a href='' className='first-section-link'>
+            SEE PRODUCT
+          </a>
+        </div>
+      </div>
     </section>
   )
 }

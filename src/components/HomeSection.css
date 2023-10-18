@@ -1,3 +1,9 @@
+.home-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 80px;
+}
 .speaker-container {
     position: relative;
     display: flex;
@@ -44,4 +50,26 @@
 }
 .speaker-text__cotainer > .first-section-link {
     background-color: black;
+}
+.speaker-zx7-container {
+    background-image: url(../assets/home/desktop/image-speaker-zx7.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 90px 0px 90px 60px;
+    border-radius: 6px;
+}
+.speaker-zx7-text__cotainer > h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: black;
+}
+.speaker-zx7-text__cotainer > .first-section-link {
+    width: 120px;
+    color: black;
+    font-weight: 700;
+    border: 2px solid black;
+    background-color: transparent;
 }
