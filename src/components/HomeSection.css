@@ -122,11 +122,14 @@
         text-align: center;
         gap: 40px;
         width: 100%;
-        padding: 60px 80px 60px 80px;
+        padding: 60px 60px 60px 60px;
+    }
+    .speaker-text__cotainer > h2 {
+        font-size: 3.6rem;
     }
     .speakerZx9 {
+        width: 160px;
         min-width: 160px;
-        max-width: 320px;
     }
     .transparent-div {
         height: 100%;

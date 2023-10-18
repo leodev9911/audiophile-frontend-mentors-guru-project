@@ -59,7 +59,7 @@ nav {
         margin-right: auto;
         cursor: pointer;
     }
-    .unordered-list__nav {
+    header .unordered-list__nav {
         display: none;
     }
 }

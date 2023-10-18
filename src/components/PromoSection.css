@@ -34,6 +34,9 @@
 .promo-image-tablet {
     display: none;
 }
+.promo-image-mobile {
+    display: none;
+}
 @media(max-width: 900px) {
     .promo-section {
         flex-direction: column-reverse;
@@ -44,6 +47,20 @@
         display: none;
     }
     .promo-image-tablet {
+        display: block;
+        width: 100%;
+        border-radius: 8px;
+    }
+    .text-section > h2 {
+        font-size: 2.6rem;
+        font-weight: 700;
+    }
+}
+@media(max-width: 500px) {
+    .promo-image-tablet {
+        display: none;
+    }
+    .promo-image-mobile {
         display: block;
         width: 100%;
         border-radius: 8px;

@@ -44,3 +44,26 @@ footer {
     line-height: 2.5rem;
     align-self: flex-start;
 } 
+@media(max-width: 900px) {
+    .footer-section {
+        align-items: center;
+        text-align: center;
+    }
+    .nav-footer {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .nav-footer > .right-section > .unordered-list__nav {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .footer-text__container {
+        align-self: center;
+    }
+    .links-section {
+        align-self: center;
+    }
+    .copyright {
+        align-self: center;
+    }
+}

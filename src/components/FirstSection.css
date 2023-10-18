@@ -10,7 +10,8 @@
     background-size: contain;
 }
 .new-product {
-    width: 380px;
+    width: 100%;
+    max-width: 350px;
     padding-top: 146px;
     font-size: 1.8rem;
     font-weight: 500;
@@ -19,7 +20,8 @@
     margin-bottom: 18px;
 }
 .first-section-h2 {
-    width: 380px;
+    width: 100%;
+    max-width: 350px;
     font-size: 5rem;
     line-height: 48px;
     font-weight: 700;
@@ -52,5 +54,9 @@
         align-items: center;
         text-align: center;
         background-image: url(../assets/home/tablet/image-header.jpg);
+        padding: 0;
+    }
+    .first-section-h2 {
+        font-size: 3.6rem;
     }
 }

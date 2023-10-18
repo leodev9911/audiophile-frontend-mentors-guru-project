@@ -2,6 +2,7 @@ import React from 'react'
 import './PromoSection.css'
 import imageGearDesktop from '../assets/shared/desktop/image-best-gear.jpg'
 import imageGearTablet from '../assets/shared/tablet/image-best-gear.jpg'
+import imageGearMobile from '../assets/shared/mobile/image-best-gear.jpg'
 
 export default function PromoSection () {
   return (
@@ -19,6 +20,11 @@ export default function PromoSection () {
         src={imageGearTablet}
         alt='Promo image'
         className='promo-image-tablet'
+      />
+      <img
+        src={imageGearMobile}
+        alt='Promo image'
+        className='promo-image-mobile'
       />
     </section>
   )
