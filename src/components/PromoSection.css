@@ -4,6 +4,7 @@
     align-items: center;
     gap: 70px;
     margin: 0 auto;
+    margin-top: 80px;
 }
 .text-section {
     display: flex;
