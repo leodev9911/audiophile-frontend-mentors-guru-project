@@ -6,11 +6,11 @@ export function useActualLocation () {
   const location = useLocation()
   const actualLocation = location.pathname
   useEffect(() => {
-    if (actualLocation === '/Headphones') {
+    if (actualLocation === '/Products/Headphones') {
       setPageTitle('HEADPHONES')
-    } else if (actualLocation === '/Speakers') {
+    } else if (actualLocation === '/Products/Speakers') {
       setPageTitle('SPEAKERS')
-    } else if (actualLocation === '/Earphones') {
+    } else if (actualLocation === '/Products/Earphones') {
       setPageTitle('EARPHONES')
     }
   }, [location])

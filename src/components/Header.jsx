@@ -33,17 +33,17 @@ export default function Header () {
               </Link>
             </li>
             <li>
-              <Link to={`/Headphones`}>
+              <Link to={`/Products/Headphones`}>
                 Headphones
               </Link>
             </li>
             <li>
-              <Link to={`/Speakers`}>
+              <Link to={`/Products/Speakers`}>
                 Speakers
               </Link>
             </li>
             <li>
-              <Link to={`/Earphones`}>
+              <Link to={`/Products/Earphones`}>
                 Earphones
               </Link>
             </li>
