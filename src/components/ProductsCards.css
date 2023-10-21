@@ -1,3 +1,6 @@
+.products__container .products-links__container {
+    margin-top: 120px;
+}
 .products-section {
     display: grid;
     gap: 40px;
