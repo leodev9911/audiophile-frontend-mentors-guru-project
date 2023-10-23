@@ -8,7 +8,6 @@ import FirstSection from '../components/FirstSection'
 import { useActualLocation } from '../hooks/useActualLocation'
 import Products from '../Pages/Products'
 import CartModal from '../components/CartModal'
-import Modal from '../components/Modal/Modal'
 
 export default function App () {
   const { actualLocation } = useActualLocation()
