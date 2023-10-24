@@ -8,6 +8,7 @@ import FirstSection from '../components/FirstSection'
 import { useActualLocation } from '../hooks/useActualLocation'
 import Products from '../Pages/Products'
 import CartModal from '../components/CartModal'
+import CartEmptyModal from '../components/CartEmptyModal'
 
 export default function App () {
   const { actualLocation } = useActualLocation()
@@ -27,7 +28,8 @@ export default function App () {
       </main>
       <Footer />
       <div className='modal'>
-        <CartModal />
+        {/* <CartModal /> */}
+        <CartEmptyModal />
       </div>
     </>
   )

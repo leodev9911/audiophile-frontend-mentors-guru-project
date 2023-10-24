@@ -6,7 +6,7 @@ export default function CartEmptyModal () {
     <section className='cart-empty-modal'>
       <p>the cart is empty</p>
       <button href='' className='first-section-link'>
-        SEE PRODUCT
+        Close Cart
       </button>
     </section>
   )

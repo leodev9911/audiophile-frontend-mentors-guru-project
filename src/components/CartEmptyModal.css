@@ -1,0 +1,22 @@
+.cart-empty-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 340px;
+    height: 160px;
+    border-radius: 6px;
+    background-color: white;
+}
+.cart-empty-modal > p {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.cart-empty-modal > .first-section-link {
+    width: 86px;
+    height: 40px;
+    border-color: transparent;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
