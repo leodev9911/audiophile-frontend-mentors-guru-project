@@ -1,0 +1,85 @@
+.summary-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 350px;
+    height: 360px;
+    background-color: white;
+    padding: 26px;
+    border-radius: 6px;
+}
+.summary-modal > img {
+    width: 40px;
+}
+.summary-modal > h3 {
+    font-size: 1.6rem;
+}
+.summary-modal > p {
+    font-size: 1.1rem;
+}
+.summary__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 110px;
+    background-color: var(--clr-light-gray);
+    border-radius: 6px;
+}
+.sum-div {
+    display: flex;
+    gap: 6px;
+    padding: 16px 2px;
+}
+.sum-upper-div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 16px;
+    border-bottom: 1px solid black;
+}
+.sum-upper-div > h5 {
+    font-size: 1.2rem;
+}
+.item-price-p {
+    color: gray;
+    font-size: 700;
+}
+.quantity-p {
+    position: absolute;
+    right: 0px;
+    top: 4px;
+}
+.sum-bottom-div {
+    padding-top: 6px;
+    font-weight: 700;
+}
+.sum-div > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.summary-modal button {
+    width: 100%;
+    height: 38px;
+    color: white;
+    font-size: 1.4rem;
+    background-color: var(--clr-orange);
+    border-color: transparent;
+    cursor: pointer;
+}
+.sum-total-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    background-color: black;
+    border-radius: 0px 6px 6px 0px;
+}
+.sum-total-div > p {
+    color: white;
+}
+.sum-total-div > h5 {
+    color: white;
+    font-size: 1.4rem;
+}
