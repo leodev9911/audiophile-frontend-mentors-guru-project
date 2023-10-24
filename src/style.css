@@ -79,7 +79,7 @@ header {
 }
 main {
   max-width: 1200px;
-  padding: 120px 40px 80px 40px;
+  padding: 0 40px;
   margin: 0 auto;
 }
 .modal {
@@ -92,4 +92,21 @@ main {
   bottom: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.9);
+}
+.checkout__page {
+  padding: 50px 40px 80px 40px;
+  margin-bottom: 60px;
+  background-color: var(--clr-light-gray);
+}
+.summary-forms__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+@media(max-width: 900px) {
+  .checkout__page {
+    padding: 50px 0px 80px 0px;
+    background-color: transparent;
+    align-items: center;
+  }
 }

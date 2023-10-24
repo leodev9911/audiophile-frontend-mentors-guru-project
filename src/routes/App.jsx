@@ -7,7 +7,8 @@ import Home from '../Pages/Home'
 import FirstSection from '../components/FirstSection'
 import { useActualLocation } from '../hooks/useActualLocation'
 import Products from '../Pages/Products'
-import SummaryModal from '../components/SummaryModal'
+import Checkout from '../Pages/Checkout'
+// import SummaryModal from '../components/SummaryModal'
 // import CartModal from '../components/CartModal'
 // import CartEmptyModal from '../components/CartEmptyModal'
 
@@ -24,15 +25,16 @@ export default function App () {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/Products/:name' element={<Products />} />
+          <Route path='/Checkout' element={<Checkout />} />
         </Routes>
-        <PromoSection />
+        {actualLocation !== '/Checkout' && <PromoSection />}
       </main>
       <Footer />
-      <div className='modal'>
-        {/* <CartModal /> */}
-        {/* <CartEmptyModal /> */}
+      {/* <div className='modal'>
+        <CartModal />
+        <CartEmptyModal />
         <SummaryModal />
-      </div>
+      </div> */}
     </>
   )
 }
