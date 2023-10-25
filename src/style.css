@@ -94,18 +94,18 @@ main {
   background-color: rgba(255, 255, 255, 0.9);
 }
 .checkout__page {
-  padding: 50px 40px 80px 40px;
+  padding: 50px 40px 60px 40px;
   margin-bottom: 60px;
   background-color: var(--clr-light-gray);
 }
 .summary-forms__container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px;
 }
 @media(max-width: 900px) {
   .checkout__page {
-    padding: 50px 0px 80px 0px;
+    padding: 50px 0px 60px 0px;
     background-color: transparent;
     align-items: center;
   }
