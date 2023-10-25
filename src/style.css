@@ -104,6 +104,9 @@ main {
   gap: 40px;
 }
 @media(max-width: 900px) {
+  .summary-forms__container {
+    justify-content: center;
+  }
   .checkout__page {
     padding: 50px 0px 60px 0px;
     background-color: transparent;

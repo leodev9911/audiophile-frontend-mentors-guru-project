@@ -11,7 +11,8 @@ export default function Checkout () {
         style={{
           cursor: 'pointer',
           border: 'none',
-          marginBottom: '50px'
+          marginBottom: '50px',
+          backgroundColor: 'transparent'
         }}
         className='go-back'
       >
