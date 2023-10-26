@@ -12,7 +12,8 @@ export default function Header () {
   return (
     <>
       <nav>
-        <a
+        <Link
+          to={'/'}
           href=''
           className='logo-image'
         >
@@ -20,7 +21,7 @@ export default function Header () {
             src={logo} alt='Audiophile logo'
             className='logo'
           />
-        </a>
+        </Link>
         <img
           src={iconHamburger} alt='Icon hambuger'
           className='icon-hamburger'

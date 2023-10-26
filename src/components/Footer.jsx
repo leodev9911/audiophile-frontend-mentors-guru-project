@@ -1,4 +1,5 @@
 import { React } from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../assets/icons/logo.svg'
 import facebook from '../assets/icons/icon-facebook.svg'
 import instagram from '../assets/icons/icon-instagram.svg'
@@ -17,24 +18,24 @@ export default function Footer () {
           <section className='right-section'>
             <ul className='unordered-list__nav'>
               <li>
-                <a href='#'>
+                <Link to={`/`}>
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#'>
+                <Link to={`/Products/Headphones`}>
                   Headphones
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#'>
+                <Link to={`/Products/Speakers`}>
                   Speakers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#'>
+                <Link to={`/Products/Earphones`}>
                   Earphones
-                </a>
+                </Link>
               </li>
             </ul>
           </section>

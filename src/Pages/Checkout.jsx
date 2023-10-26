@@ -1,8 +1,6 @@
 import React from 'react'
-import FormCheckout from '../components/FormCheckout'
-import SummaryCheckout from '../components/SummaryCheckout'
 
-export default function Checkout () {
+export default function Checkout ({ children }) {
   return (
     <section
       className='checkout__page'
@@ -19,8 +17,7 @@ export default function Checkout () {
         Go back
       </button>
       <div className='summary-forms__container'>
-        <FormCheckout />
-        <SummaryCheckout />
+        {children}
       </div>
     </section>
   )

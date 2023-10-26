@@ -13,7 +13,7 @@
 .product:nth-child(even) {
     flex-direction: row-reverse;
 }
-.products-section img {
+.products-section > .product > img {
     width: 350px;
     border-radius: 6px;
 }
