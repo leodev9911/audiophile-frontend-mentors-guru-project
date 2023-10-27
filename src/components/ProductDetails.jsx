@@ -1,39 +1,43 @@
 import React from 'react'
 import { useImages } from '../assets/images'
-import headphonesGallery1 from '../assets/product-xx59-headphones/desktop/image-gallery-1.jpg'
-import headphonesGallery2 from '../assets/product-xx59-headphones/desktop/image-gallery-2.jpg'
-import headphonesGallery3 from '../assets/product-xx59-headphones/desktop/image-gallery-3.jpg'
 import './ProductDetails.css'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function ProductDetails () {
-  const { speakerZX9 } = useImages()
+  const { productsGallery } = useImages()
   const location = useLocation()
   const {
     name,
     description,
     price,
     features,
-    includes
-  } = location.state.product
+    includes,
+    slug
+  } = location.state.product1
+  const { img } = location.state
+  const { beforeLocation } = location.state
 
   return (
     <>
-      <button
+      <Link
+        to={beforeLocation}
         style={{
+          display: 'inline-block',
           cursor: 'pointer',
           border: 'none',
           marginBottom: '50px',
           backgroundColor: 'transparent',
-          fontSize: '1.5rem'
+          textDecoration: 'none',
+          fontSize: '1.5rem',
+          color: 'gray'
         }}
         className='go-back'
       >
         Go back
-      </button>
+      </Link>
       <section>
         <div className='product-details-info'>
-          <img src={speakerZX9} alt='Product image' />
+          <img src={`..${img}`} alt='Product image' />
           <div className='product-details-description'>
             <h2>{name}</h2>
             <p>{description}</p>
@@ -58,15 +62,15 @@ export default function ProductDetails () {
           <div>
             <h3>IN THE BOX</h3>
             <p><span>{includes[0].quantity}</span>{includes[0].item}</p>
-            <p><span>{includes[1].quantity}</span>{includes[1].item}</p>
-            <p><span>{includes[2].quantity}</span>{includes[2].item}</p>
-            <p><span>{includes[3].quantity}</span>{includes[3].item}</p>
+            <p><span>{includes[1].quantity}</span>{includes[0].item}</p>
+            <p><span>{includes[2].quantity}</span>{includes[0].item}</p>
+            <p><span>{includes[3].quantity}</span>{includes[0].item}</p>
           </div>
         </div>
         <div className='product-details-images'>
-          <img src={headphonesGallery1} alt='Gallery image' />
-          <img src={headphonesGallery2} alt='Gallery image' />
-          <img src={headphonesGallery3} alt='Gallery image' />
+          <img src={`..${productsGallery[slug][0]}`} alt='Gallery image' />
+          <img src={`..${productsGallery[slug][1]}`} alt='Gallery image' />
+          <img src={`..${productsGallery[slug][2]}`} alt='Gallery image' />
         </div>
       </section>
     </>

@@ -13,7 +13,7 @@ import HomeSection from '../components/HomeSection'
 import ProductsCards from '../components/ProductsCards'
 import FormCheckout from '../components/FormCheckout'
 import SummaryCheckout from '../components/SummaryCheckout'
-import data from '../../data.json'
+import data from '../../data'
 import { useImages } from '../assets/images'
 import ProductDetails from '../components/ProductDetails'
 import Details from '../Pages/Details'
@@ -37,18 +37,8 @@ export default function App () {
   }, [actualLocation])
 
   const {
-    headphonesXX99Two,
-    headphonesXX99One,
-    headphonesXX59,
-    speakerZX7,
-    speakerZX9,
-    earphonesYX1
+    imgProduct
   } = useImages()
-  const imgProduct = {
-    headphones: [headphonesXX59, headphonesXX99One, headphonesXX99Two],
-    speakers: [speakerZX7, speakerZX9],
-    earphones: [earphonesYX1]
-  }
 
   const productsToShow = data.filter(product => product.category === category)
   let n = -1

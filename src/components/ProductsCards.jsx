@@ -1,10 +1,10 @@
 import React from 'react'
 import './ProductsCards.css'
-import { Link } from 'react-router-dom'
-// import { useImages } from '../assets/images'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function ProductsCards ({ title, description, thumbnail, product }) {
-  console.log(product)
+  const productLocation = useLocation()
+
   return (
     <div className='product'>
       <img
@@ -23,7 +23,9 @@ export default function ProductsCards ({ title, description, thumbnail, product 
         <Link
           to={`/Details/:${product.slug}`}
           state={{
-            product
+            product1: product,
+            img: thumbnail,
+            beforeLocation: productLocation.pathname
           }}
           className='first-section-link'
         >
