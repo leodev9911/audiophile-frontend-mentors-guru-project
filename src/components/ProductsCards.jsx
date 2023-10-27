@@ -1,8 +1,10 @@
 import React from 'react'
 import './ProductsCards.css'
+import { Link } from 'react-router-dom'
 // import { useImages } from '../assets/images'
 
-export default function ProductsCards ({ title, description, thumbnail }) {
+export default function ProductsCards ({ title, description, thumbnail, product }) {
+  console.log(product)
   return (
     <div className='product'>
       <img
@@ -18,9 +20,15 @@ export default function ProductsCards ({ title, description, thumbnail }) {
         <p className='product-description-p'>
           {description}
         </p>
-        <a href='' className='first-section-link'>
+        <Link
+          to={`/Details/:${product.slug}`}
+          state={{
+            product
+          }}
+          className='first-section-link'
+        >
           SEE PRODUCT
-        </a>
+        </Link>
       </div>
     </div>
   )

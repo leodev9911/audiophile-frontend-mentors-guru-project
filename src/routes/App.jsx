@@ -88,6 +88,7 @@ export default function App () {
                         key={product.id}
                         title={product.name}
                         description={product.description}
+                        product={product}
                       />
                     )
                   })}
