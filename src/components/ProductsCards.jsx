@@ -15,7 +15,7 @@ export default function ProductsCards ({ title, description, thumbnail }) {
         <h3 className='description-title'>
           {title}
         </h3>
-        <p className='product-description'>
+        <p className='product-description-p'>
           {description}
         </p>
         <a href='' className='first-section-link'>

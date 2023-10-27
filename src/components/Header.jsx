@@ -13,8 +13,7 @@ export default function Header () {
     <>
       <nav>
         <Link
-          to={'/'}
-          href=''
+          to='/'
           className='logo-image'
         >
           <img
@@ -29,22 +28,22 @@ export default function Header () {
         <section className='right-section'>
           <ul className='unordered-list__nav'>
             <li>
-              <Link to={`/`}>
+              <Link to='/'>
                 Home
               </Link>
             </li>
             <li>
-              <Link to={`/Products/Headphones`}>
+              <Link to='/Products/Headphones'>
                 Headphones
               </Link>
             </li>
             <li>
-              <Link to={`/Products/Speakers`}>
+              <Link to='/Products/Speakers'>
                 Speakers
               </Link>
             </li>
             <li>
-              <Link to={`/Products/Earphones`}>
+              <Link to='/Products/Earphones'>
                 Earphones
               </Link>
             </li>

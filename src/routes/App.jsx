@@ -15,6 +15,8 @@ import FormCheckout from '../components/FormCheckout'
 import SummaryCheckout from '../components/SummaryCheckout'
 import data from '../../data.json'
 import { useImages } from '../assets/images'
+import ProductDetails from '../components/ProductDetails'
+import Details from '../Pages/Details'
 // import SummaryModal from '../components/SummaryModal'
 // import CartModal from '../components/CartModal'
 // import CartEmptyModal from '../components/CartEmptyModal'
@@ -101,6 +103,14 @@ export default function App () {
                 <FormCheckout />
                 <SummaryCheckout />
               </Checkout>
+            }
+          />
+          <Route
+            path='/Details/:name'
+            element={
+              <Details>
+                <ProductDetails />
+              </Details>
             }
           />
         </Routes>
