@@ -6,8 +6,11 @@ import { Link } from 'react-router-dom'
 import './Header.css'
 import { useActualLocation } from '../hooks/useActualLocation'
 
-export default function Header () {
+export default function Header ({ setCartIsActive }) {
   const { actualLocation, pageTitle } = useActualLocation()
+  const handleShowCart = () => {
+    setCartIsActive(prevCartActive => !prevCartActive)
+  }
 
   return (
     <>
@@ -48,7 +51,10 @@ export default function Header () {
               </Link>
             </li>
           </ul>
-          <figure className='icon-cart__container'>
+          <figure
+            className='icon-cart__container'
+            onClick={() => handleShowCart()}
+          >
             <img
               src={carIcon} alt='Car icon'
               className='car-button__nav'

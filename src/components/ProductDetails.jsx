@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useImages } from '../assets/images'
 import './ProductDetails.css'
 import { Link, useLocation } from 'react-router-dom'
+import { CartContext } from '../context/cart'
 
 export default function ProductDetails () {
   const { productsGallery } = useImages()
+  const { handleAddToCart } = useContext(CartContext)
   const location = useLocation()
   const {
     name,
@@ -14,7 +16,7 @@ export default function ProductDetails () {
     includes,
     slug
   } = location.state.product1
-  const { img } = location.state
+  const { img, product1 } = location.state
   const { beforeLocation } = location.state
 
   return (
@@ -48,7 +50,10 @@ export default function ProductDetails () {
                 <div className='quantity'>3</div>
                 <div className='operator'>+</div>
               </div>
-              <button className='add-to-cart-button'>
+              <button
+                className='add-to-cart-button'
+                onClick={() => handleAddToCart(product1, img)}
+              >
                 ADD TO CART
               </button>
             </div>

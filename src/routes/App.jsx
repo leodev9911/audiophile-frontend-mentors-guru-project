@@ -18,12 +18,13 @@ import { useImages } from '../assets/images'
 import ProductDetails from '../components/ProductDetails'
 import Details from '../Pages/Details'
 // import SummaryModal from '../components/SummaryModal'
-// import CartModal from '../components/CartModal'
+import CartModal from '../components/CartModal'
 // import CartEmptyModal from '../components/CartEmptyModal'
 
 export default function App () {
   const { actualLocation } = useActualLocation()
   const [category, setCategory] = useState('')
+  const [cartIsActive, setCartIsActive] = useState(false)
 
   useEffect(() => {
     if (actualLocation === '/Products/Headphones') {
@@ -46,7 +47,7 @@ export default function App () {
   return (
     <>
       <header>
-        <Header />
+        <Header setCartIsActive={setCartIsActive} />
         {actualLocation === '/' && <FirstSection />}
       </header>
       <main>
@@ -108,11 +109,12 @@ export default function App () {
         {actualLocation !== '/Checkout' && <PromoSection />}
       </main>
       <Footer />
-      {/* <div className='modal'>
-        <CartModal />
-        <CartEmptyModal />
-        <SummaryModal />
-      </div> */}
+      {cartIsActive &&
+        <div className='modal'>
+          <CartModal setCartIsActive={setCartIsActive} />
+          {/* <CartEmptyModal />
+          <SummaryModal /> */}
+        </div>}
     </>
   )
 }
