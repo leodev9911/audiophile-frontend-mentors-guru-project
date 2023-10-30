@@ -7,7 +7,11 @@ export default function ({ setCartIsActive }) {
   const handleShowCart = () => {
     setCartIsActive(prevCartActive => !prevCartActive)
   }
-  const { cart } = useContext(CartContext)
+  const {
+    cart,
+    handleDeleteProductFromCart,
+    handleAddToCart
+  } = useContext(CartContext)
 
   return (
     <section className='cart-modal'>
@@ -43,13 +47,23 @@ export default function ({ setCartIsActive }) {
                   />
                   <div>
                     <p className='cart-product-title'>{product.title}</p>
-                    <p className='cart-product-price'>${product.price}</p>
+                    <p className='cart-product-price'>${product.price * product.quantity}</p>
                   </div>
                 </div>
                 <div className='cart-right-section'>
-                  <div className='operator'>-</div>
+                  <div
+                    className='operator'
+                    onClick={() => handleDeleteProductFromCart(product)}
+                  >
+                    -
+                  </div>
                   <div className='quantity'>{product.quantity}</div>
-                  <div className='operator'>+</div>
+                  <div
+                    className='operator'
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    +
+                  </div>
                 </div>
               </div>
             )

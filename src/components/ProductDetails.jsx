@@ -6,7 +6,12 @@ import { CartContext } from '../context/cart'
 
 export default function ProductDetails () {
   const { productsGallery } = useImages()
-  const { handleAddToCart } = useContext(CartContext)
+  const {
+    handleAddToCart,
+    quantityToAdd,
+    handleAddQuantity,
+    handleSubstractToCart
+  } = useContext(CartContext)
   const location = useLocation()
   const {
     name,
@@ -46,9 +51,19 @@ export default function ProductDetails () {
             <p>${price}</p>
             <div className='product-details-buttons'>
               <div className='product-details-buttons-plus-minus'>
-                <div className='operator'>-</div>
-                <div className='quantity'>3</div>
-                <div className='operator'>+</div>
+                <div
+                  onClick={() => handleSubstractToCart()}
+                  className='operator'
+                >
+                  -
+                </div>
+                <div className='quantity'>{quantityToAdd}</div>
+                <div
+                  onClick={() => handleAddQuantity()}
+                  className='operator'
+                >
+                  +
+                </div>
               </div>
               <button
                 className='add-to-cart-button'

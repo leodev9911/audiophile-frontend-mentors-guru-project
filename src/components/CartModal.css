@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 20px;
     width: 340px;
     height: 400px;
     padding: 22px 16px;
@@ -43,6 +44,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    height: 200px;
+    overflow: auto;
 }
 .cart-product-title {
     font-size: 1.4rem;

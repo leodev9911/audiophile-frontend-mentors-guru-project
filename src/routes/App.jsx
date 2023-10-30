@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react'
+import { React, useContext, useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -19,12 +19,16 @@ import ProductDetails from '../components/ProductDetails'
 import Details from '../Pages/Details'
 // import SummaryModal from '../components/SummaryModal'
 import CartModal from '../components/CartModal'
-// import CartEmptyModal from '../components/CartEmptyModal'
+import { CartContext } from '../context/cart'
+import CartEmptyModal from '../components/CartEmptyModal'
 
 export default function App () {
   const { actualLocation } = useActualLocation()
   const [category, setCategory] = useState('')
   const [cartIsActive, setCartIsActive] = useState(false)
+  const { cart } = useContext(CartContext)
+  console.log(cart)
+  console.log(cart.length)
 
   useEffect(() => {
     if (actualLocation === '/Products/Headphones') {
@@ -111,9 +115,8 @@ export default function App () {
       <Footer />
       {cartIsActive &&
         <div className='modal'>
-          <CartModal setCartIsActive={setCartIsActive} />
-          {/* <CartEmptyModal />
-          <SummaryModal /> */}
+          {cart.length > 0 ? <CartModal setCartIsActive={setCartIsActive} /> : <CartEmptyModal setCartIsActive={setCartIsActive} />}
+          {/* <SummaryModal /> */}
         </div>}
     </>
   )
