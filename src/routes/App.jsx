@@ -27,8 +27,6 @@ export default function App () {
   const [category, setCategory] = useState('')
   const [cartIsActive, setCartIsActive] = useState(false)
   const { cart } = useContext(CartContext)
-  console.log(cart)
-  console.log(cart.length)
 
   useEffect(() => {
     if (actualLocation === '/Products/Headphones') {

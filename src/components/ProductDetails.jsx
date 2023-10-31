@@ -82,9 +82,9 @@ export default function ProductDetails () {
           <div>
             <h3>IN THE BOX</h3>
             <p><span>{includes[0].quantity}</span>{includes[0].item}</p>
-            <p><span>{includes[1].quantity}</span>{includes[0].item}</p>
-            <p><span>{includes[2].quantity}</span>{includes[0].item}</p>
-            <p><span>{includes[3].quantity}</span>{includes[0].item}</p>
+            <p><span>{includes[1].quantity}</span>{includes[1].item}</p>
+            <p><span>{includes[2].quantity}</span>{includes[2].item}</p>
+            <p><span>{includes[3].quantity}</span>{includes[3].item}</p>
           </div>
         </div>
         <div className='product-details-images'>

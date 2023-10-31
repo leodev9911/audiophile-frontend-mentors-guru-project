@@ -2,6 +2,7 @@ import { React, useContext } from 'react'
 import './CartModal.css'
 import closeIcon from '../assets/icons/icon-close.svg'
 import { CartContext } from '../context/cart'
+import { Link } from 'react-router-dom'
 
 export default function ({ setCartIsActive }) {
   const handleShowCart = () => {
@@ -10,8 +11,11 @@ export default function ({ setCartIsActive }) {
   const {
     cart,
     handleDeleteProductFromCart,
-    handleAddToCart
+    handleAddToCart,
+    handleRemoveAll
   } = useContext(CartContext)
+
+  const totalPrice = cart.reduce((acumulator, product) => acumulator + product.totalPrice, 0)
 
   return (
     <section className='cart-modal'>
@@ -22,6 +26,7 @@ export default function ({ setCartIsActive }) {
           </p>
           <p
             className='cart-remove-button'
+            onClick={() => handleRemoveAll()}
           >
             Remove all
           </p>
@@ -47,7 +52,7 @@ export default function ({ setCartIsActive }) {
                   />
                   <div>
                     <p className='cart-product-title'>{product.title}</p>
-                    <p className='cart-product-price'>${product.price * product.quantity}</p>
+                    <p className='cart-product-price'>${product.totalPrice}</p>
                   </div>
                 </div>
                 <div className='cart-right-section'>
@@ -73,11 +78,13 @@ export default function ({ setCartIsActive }) {
       <div className='cart-lower-section'>
         <div className='cart-total-price'>
           <p>Total</p>
-          <p>$9,4211</p>
+          <p>${totalPrice}</p>
         </div>
-        <button>
+        <Link
+          to='/Checkout'
+        >
           Checkout
-        </button>
+        </Link>
       </div>
     </section>
   )

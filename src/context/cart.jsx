@@ -12,6 +12,7 @@ export function CartProvider ({ children }) {
     if (productInCartIndex >= 0) {
       const newCart = structuredClone(cart)
       newCart[productInCartIndex].quantity += 1
+      newCart[productInCartIndex].totalPrice = newCart[productInCartIndex].quantity * newCart[productInCartIndex].price
       setCart(newCart)
     } else {
       setCart(prevState => ([
@@ -19,10 +20,15 @@ export function CartProvider ({ children }) {
         {
           ...product,
           quantity: quantityToAdd,
-          importImage: `..${img}`
+          importImage: `..${img}`,
+          totalPrice: product.price * quantityToAdd
         }
       ]))
     }
+  }
+
+  const handleRemoveAll = () => {
+    setCart([])
   }
 
   const handleDeleteProductFromCart = (product) => {
@@ -31,6 +37,7 @@ export function CartProvider ({ children }) {
 
     if (newCart[productInCartIndex].quantity > 1) {
       newCart[productInCartIndex].quantity -= 1
+      newCart[productInCartIndex].totalPrice = newCart[productInCartIndex].quantity * newCart[productInCartIndex].price
       setCart(newCart)
     } else {
       newCart.splice(productInCartIndex, 1)
@@ -42,7 +49,7 @@ export function CartProvider ({ children }) {
   }
   const handleSubstractToCart = () => {
     setQuantityToAdd(prevQuantity => {
-      return prevQuantity > 0 ? prevQuantity - 1 : prevQuantity
+      return prevQuantity > 1 ? prevQuantity - 1 : prevQuantity
     })
   }
 
@@ -54,7 +61,8 @@ export function CartProvider ({ children }) {
         quantityToAdd,
         handleAddQuantity,
         handleSubstractToCart,
-        handleDeleteProductFromCart
+        handleDeleteProductFromCart,
+        handleRemoveAll
       }}
     >
       {children}
