@@ -2,7 +2,7 @@ import { React, useContext } from 'react'
 import './CartModal.css'
 import closeIcon from '../assets/icons/icon-close.svg'
 import { CartContext } from '../context/cart'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function ({ setCartIsActive }) {
   const handleShowCart = () => {
@@ -15,6 +15,7 @@ export default function ({ setCartIsActive }) {
     handleRemoveAll
   } = useContext(CartContext)
 
+  const productLocation = useLocation()
   const totalPrice = cart.reduce((acumulator, product) => acumulator + product.totalPrice, 0)
 
   return (
@@ -82,6 +83,10 @@ export default function ({ setCartIsActive }) {
         </div>
         <Link
           to='/Checkout'
+          onClick={() => handleShowCart()}
+          state={{
+            beforeLocation: productLocation.pathname
+          }}
         >
           Checkout
         </Link>

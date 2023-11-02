@@ -46,6 +46,25 @@ nav {
 .icon-cart__container:hover {
     background: rgba(223, 223, 224, 0.2);
 }
+.car-button__nav {
+    display: inline-block;
+    position: relative;
+}
+.icon-cart__container > span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 28px;
+    right: 46px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--clr-orange);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+}
 .page-title {
     text-align: center;
     font-size: 4rem;

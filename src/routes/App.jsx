@@ -17,7 +17,7 @@ import data from '../../data'
 import { useImages } from '../assets/images'
 import ProductDetails from '../components/ProductDetails'
 import Details from '../Pages/Details'
-// import SummaryModal from '../components/SummaryModal'
+import SummaryModal from '../components/SummaryModal'
 import CartModal from '../components/CartModal'
 import { CartContext } from '../context/cart'
 import CartEmptyModal from '../components/CartEmptyModal'
@@ -26,6 +26,7 @@ export default function App () {
   const { actualLocation } = useActualLocation()
   const [category, setCategory] = useState('')
   const [cartIsActive, setCartIsActive] = useState(false)
+  const [summaryModal, setSummaryModal] = useState(false)
   const { cart } = useContext(CartContext)
 
   useEffect(() => {
@@ -95,7 +96,7 @@ export default function App () {
             element={
               <Checkout>
                 <FormCheckout />
-                <SummaryCheckout />
+                <SummaryCheckout setSummaryModal={setSummaryModal} />
               </Checkout>
             }
           />
@@ -111,10 +112,11 @@ export default function App () {
         {actualLocation !== '/Checkout' && <PromoSection />}
       </main>
       <Footer />
-      {cartIsActive &&
+      {(cartIsActive || summaryModal) &&
         <div className='modal'>
-          {cart.length > 0 ? <CartModal setCartIsActive={setCartIsActive} /> : <CartEmptyModal setCartIsActive={setCartIsActive} />}
-          {/* <SummaryModal /> */}
+          {(cart.length > 0 && !summaryModal) && <CartModal setCartIsActive={setCartIsActive} />}
+          {cart.length === 0 && <CartEmptyModal setCartIsActive={setCartIsActive} />}
+          {summaryModal && <SummaryModal setSummaryModal={setSummaryModal} />}
         </div>}
     </>
   )

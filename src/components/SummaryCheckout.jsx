@@ -1,25 +1,39 @@
-import { React } from 'react'
+import { React, useContext } from 'react'
 import './SummaryCheckout.css'
-import { useImages } from '../assets/images'
+import { CartContext } from '../context/cart'
 
-export default function SummaryCheckout () {
-  const { headphonesXX99One } = useImages()
+export default function SummaryCheckout ({ setSummaryModal }) {
+  const { cart } = useContext(CartContext)
+  const totalPrice = cart.reduce((acumulator, product) => acumulator + product.totalPrice, 0)
+  const toSummaryModal = () => {
+    setSummaryModal(prevState => !prevState)
+  }
+  const grandTotal = totalPrice + 99 + 95
 
   return (
     <section className='summary-checkout'>
       <h2>SUMMARY</h2>
-      <div className='summary-products'>
-        <img src={headphonesXX99One} alt='Product image' />
-        <div className='text-section'>
-          <p>YX1</p>
-          <p>$599.00</p>
-        </div>
-        <p>x1</p>
-      </div>
+      <section className='summary-product-section'>
+        {cart.map(product => {
+          return (
+            <div
+              className='summary-products'
+              key={product.id}
+            >
+              <img src={product.importImage} alt='Product image' />
+              <div className='text-section'>
+                <p>{product.title}</p>
+                <p>${product.totalPrice}</p>
+              </div>
+              <p>x{product.quantity}</p>
+            </div>
+          )
+        })}
+      </section>
       <div className='prices-section'>
         <div>
           <p>TOTAL</p>
-          <p>$9,599.00</p>
+          <p>${totalPrice}</p>
         </div>
         <div>
           <p>SHIPPING</p>
@@ -31,10 +45,10 @@ export default function SummaryCheckout () {
         </div>
         <div>
           <p>GRAND TOTAL</p>
-          <p>$9,599.00</p>
+          <p>${grandTotal}</p>
         </div>
       </div>
-      <button>
+      <button onClick={toSummaryModal}>
         Checkout
       </button>
     </section>

@@ -1,16 +1,18 @@
-import { React } from 'react'
+import { React, useContext } from 'react'
 import logo from '../assets/icons/logo.svg'
 import carIcon from '../assets/icons/icon-cart.svg'
 import iconHamburger from '../assets/icons/icon-hamburger.svg'
 import { Link } from 'react-router-dom'
 import './Header.css'
 import { useActualLocation } from '../hooks/useActualLocation'
+import { CartContext } from '../context/cart'
 
 export default function Header ({ setCartIsActive }) {
   const { actualLocation, pageTitle } = useActualLocation()
   const handleShowCart = () => {
     setCartIsActive(prevCartActive => !prevCartActive)
   }
+  const { cart } = useContext(CartContext)
 
   return (
     <>
@@ -59,6 +61,7 @@ export default function Header ({ setCartIsActive }) {
               src={carIcon} alt='Car icon'
               className='car-button__nav'
             />
+            {cart.length > 0 && <span>{cart.length}</span>}
           </figure>
         </section>
       </nav>
