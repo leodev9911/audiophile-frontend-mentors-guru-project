@@ -1,11 +1,10 @@
-import { React, useContext, useEffect, useState } from 'react'
+import { React, useContext, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import PromoSection from '../components/PromoSection'
 import Home from '../Pages/Home'
 import FirstSection from '../components/FirstSection'
-import { useActualLocation } from '../hooks/useActualLocation'
 import Products from '../Pages/Products'
 import Checkout from '../Pages/Checkout'
 import ProductsLinks from '../components/ProductsLinks'
@@ -21,31 +20,35 @@ import SummaryModal from '../components/SummaryModal'
 import CartModal from '../components/CartModal'
 import { CartContext } from '../context/cart'
 import CartEmptyModal from '../components/CartEmptyModal'
+import { useCategory } from '../hooks/useCategory'
 
 export default function App () {
-  const { actualLocation } = useActualLocation()
-  const [category, setCategory] = useState('')
   const [cartIsActive, setCartIsActive] = useState(false)
-  const [summaryModal, setSummaryModal] = useState(false)
   const { cart } = useContext(CartContext)
-
-  useEffect(() => {
-    if (actualLocation === '/Products/Headphones') {
-      setCategory('headphones')
-    } else if (actualLocation === '/Products/Earphones') {
-      setCategory('earphones')
-    }
-    if (actualLocation === '/Products/Speakers') {
-      setCategory('speakers')
-    }
-  }, [actualLocation])
-
+  const [summaryModal, setSummaryModal] = useState(false)
+  const { actualLocation, category } = useCategory()
   const {
     imgProduct
   } = useImages()
 
   const productsToShow = data.filter(product => product.category === category)
   let n = -1
+
+  const speakerZX9P = {
+    product: data[5],
+    thumbnail: imgProduct.speakers[1],
+    beforeLocation: '/'
+  }
+  const speakerZX7P = {
+    product: data[4],
+    thumbnail: imgProduct.speakers[0],
+    beforeLocation: '/'
+  }
+  const earphoneYX1P = {
+    product: data[0],
+    thumbnail: imgProduct.earphones[0],
+    beforeLocation: '/'
+  }
 
   return (
     <>
@@ -60,7 +63,11 @@ export default function App () {
             element={
               <Home>
                 <ProductsLinks />
-                <HomeSection />
+                <HomeSection
+                  speakerZX9P={speakerZX9P}
+                  speakerZX7P={speakerZX7P}
+                  earphoneYX1P={earphoneYX1P}
+                />
               </Home>
             }
           />

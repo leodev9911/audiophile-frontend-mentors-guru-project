@@ -75,6 +75,7 @@
     height: 100%;
     cursor: pointer;
     font-size: 2rem;
+    transition: 0.3s;
 }
 .operator:hover {
     color: var(--clr-orange);

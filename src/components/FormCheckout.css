@@ -28,8 +28,13 @@
     gap: 8px;
 }
 .input-div > label {
+    display: flex;
+    justify-content: space-between;
     font-size: 1.2rem;
     font-weight: 700;
+}
+.input-div > label.recquired {
+    color: red;
 }
 .input-div > input {
     width: 270px;
@@ -37,6 +42,9 @@
     border-radius: 6px;
     border: 1px solid var(--clr-light-gray);
     padding-left: 18px;
+}
+.input-div > input.recquired {
+    border: 2px solid red;
 }
 .address {
     width: 100%;
@@ -68,6 +76,13 @@
     font-weight: 700;
     font-size: 1.2rem;
     cursor: pointer;
+    transition: 0.3s;
+}
+.checkbox:hover {
+    border: 2px solid var(--clr-orange);
+}
+.checkbox.checked {
+    border: 2px solid var(--clr-orange);
 }
 .checkout-form > .info-div {
     font-size: 1.2rem;

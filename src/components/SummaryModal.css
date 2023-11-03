@@ -70,6 +70,10 @@
     border-color: transparent;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.3s;
+}
+.summary-modal a:hover {
+    opacity: 0.7;
 }
 .sum-total-div {
     display: flex;

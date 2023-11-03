@@ -5,9 +5,11 @@ import { CartContext } from '../context/cart'
 export default function SummaryCheckout ({ setSummaryModal }) {
   const { cart } = useContext(CartContext)
   const totalPrice = cart.reduce((acumulator, product) => acumulator + product.totalPrice, 0)
-  const toSummaryModal = () => {
+
+  const handleCheckoutButton = () => {
     setSummaryModal(prevState => !prevState)
   }
+
   const grandTotal = totalPrice + 99 + 95
 
   return (
@@ -48,7 +50,7 @@ export default function SummaryCheckout ({ setSummaryModal }) {
           <p>${grandTotal}</p>
         </div>
       </div>
-      <button onClick={toSummaryModal}>
+      <button onClick={handleCheckoutButton}>
         Checkout
       </button>
     </section>
