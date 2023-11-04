@@ -49,12 +49,19 @@ export default function App () {
     thumbnail: imgProduct.earphones[0],
     beforeLocation: '/'
   }
+  const headphoneXX99IIP = {
+    product: data[3],
+    thumbnail: imgProduct.headphones[1],
+    beforeLocation: '/'
+  }
 
   return (
     <>
       <header>
-        <Header setCartIsActive={setCartIsActive} />
-        {actualLocation === '/' && <FirstSection />}
+        <Header
+          setCartIsActive={setCartIsActive}
+        />
+        {actualLocation === '/' && <FirstSection headphoneXX99IIP={headphoneXX99IIP} />}
       </header>
       <main>
         <Routes>
