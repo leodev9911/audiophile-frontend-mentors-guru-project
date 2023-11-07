@@ -1,13 +1,19 @@
 import { React, useContext } from 'react'
 import './SummaryCheckout.css'
 import { CartContext } from '../context/cart'
+import { FormsContext } from '../context/forms'
 
 export default function SummaryCheckout ({ setSummaryModal }) {
   const { cart } = useContext(CartContext)
   const totalPrice = cart.reduce((acumulator, product) => acumulator + product.totalPrice, 0)
+  const { setWasTried, allFormsValid } = useContext(FormsContext)
 
   const handleCheckoutButton = () => {
-    setSummaryModal(prevState => !prevState)
+    if (allFormsValid === true) {
+      setSummaryModal(prev => !prev)
+    } else {
+      setWasTried(true)
+    }
   }
 
   const grandTotal = totalPrice + 99 + 95
@@ -50,7 +56,7 @@ export default function SummaryCheckout ({ setSummaryModal }) {
           <p>${grandTotal}</p>
         </div>
       </div>
-      <button onClick={handleCheckoutButton}>
+      <button onClick={() => handleCheckoutButton()}>
         Checkout
       </button>
     </section>

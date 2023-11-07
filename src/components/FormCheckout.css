@@ -67,7 +67,7 @@
 .checkbox {
     display: flex;
     width: 240px;
-    border: 1px solid black;
+    border: 2px solid black;
     height: 48px;
     align-items: center;
     padding-left: 20px;
@@ -77,6 +77,9 @@
     font-size: 1.2rem;
     cursor: pointer;
     transition: 0.3s;
+}
+.checkbox.recquired {
+    border: 2px solid red;
 }
 .checkbox:hover {
     border: 2px solid var(--clr-orange);

@@ -1,10 +1,10 @@
-import { React } from 'react'
+import { React, useContext } from 'react'
 import cashIcon from '../assets/icons/cash-icon.svg'
 import './FormCheckout.css'
-import { useForms } from '../hooks/useForms'
+import { FormsContext } from '../context/forms'
 
 export default function FormCheckout () {
-  const { formsInfo, handleChange } = useForms()
+  const { formsInfo, handleChange, wasTried, isValid } = useContext(FormsContext)
 
   return (
     <section className='checkout-form'>
@@ -14,8 +14,10 @@ export default function FormCheckout () {
         <div className='input-div'>
           <label
             htmlFor='Name'
+            className={(formsInfo.name.value1 === '' && wasTried) ? 'recquired' : ''}
           >
             Name
+            {(formsInfo.name.value1 === '' && wasTried) && <p>The field cannot be empty</p>}
           </label>
           <input
             type='text'
@@ -23,15 +25,18 @@ export default function FormCheckout () {
             placeholder='Leonardo Fernández'
             name='name'
             onChange={handleChange}
-            value={formsInfo.name}
-            required
+            value={formsInfo.name.value1}
+            className={(formsInfo.name.value1 === '' && wasTried) ? 'recquired' : ''}
           />
         </div>
         <div className='input-div'>
           <label
             htmlFor='Email'
+            className={((formsInfo.email.value1 === '' && wasTried) || (formsInfo.email.value1 !== '' && !isValid())) ? 'recquired' : ''}
           >
             Email
+            {(formsInfo.email.value1 === '' && wasTried) && <p>The field cannot be empty</p>}
+            {(formsInfo.email.value1 !== '' && !isValid()) && <p>Email isn't valid</p>}
           </label>
           <input
             type='text'
@@ -39,15 +44,17 @@ export default function FormCheckout () {
             placeholder='leonardo99112821385@gmail.com'
             name='email'
             onChange={handleChange}
-            value={formsInfo.email}
-            required
+            value={formsInfo.email.value1}
+            className={((formsInfo.email.value1 === '' && wasTried) || (formsInfo.email.value1 !== '' && !isValid())) ? 'recquired' : ''}
           />
         </div>
         <div className='input-div'>
           <label
             htmlFor='Phone'
+            className={(formsInfo.phone.value1 === '' && wasTried) ? 'recquired' : ''}
           >
             Phone Number
+            {(formsInfo.phone.value1 === '' && wasTried) && <p>The field cannot be empty</p>}
           </label>
           <input
             type='text'
@@ -55,8 +62,8 @@ export default function FormCheckout () {
             placeholder='+53 52592682'
             name='phone'
             onChange={handleChange}
-            value={formsInfo.phone}
-            required
+            value={formsInfo.phone.value1}
+            className={(formsInfo.name.value1 === '' && wasTried) ? 'recquired' : ''}
           />
         </div>
       </div>
@@ -65,8 +72,10 @@ export default function FormCheckout () {
         <div className='input-div address'>
           <label
             htmlFor='Address'
+            className={(formsInfo.address.value1 === '' && wasTried) ? 'recquired' : ''}
           >
             Your Address
+            {(formsInfo.address.value1 === '' && wasTried) && <p>The field cannot be empty</p>}
           </label>
           <input
             type='text'
@@ -74,15 +83,17 @@ export default function FormCheckout () {
             placeholder='1137 Williams avenue'
             name='address'
             onChange={handleChange}
-            value={formsInfo.address}
-            required
+            value={formsInfo.address.value1}
+            className={(formsInfo.address.value1 === '' && wasTried) && 'recquired'}
           />
         </div>
         <div className='input-div'>
           <label
             htmlFor='ZIP-code'
+            className={(formsInfo.zip.value1 === '' && wasTried) ? 'recquired' : ''}
           >
             ZIP code
+            {(formsInfo.zip.value1 === '' && wasTried) && <p>The field cannot be empty</p>}
           </label>
           <input
             type='text'
@@ -90,15 +101,17 @@ export default function FormCheckout () {
             placeholder='10001'
             name='zip'
             onChange={handleChange}
-            value={formsInfo.zip}
-            required
+            value={formsInfo.zip.value1}
+            className={(formsInfo.name.value1 === '' && wasTried) ? 'recquired' : ''}
           />
         </div>
         <div className='input-div'>
           <label
             htmlFor='City'
+            className={(formsInfo.city.value1 === '' && wasTried) ? 'recquired' : ''}
           >
             City
+            {(formsInfo.city.value1 === '' && wasTried) && <p>The field cannot be empty</p>}
           </label>
           <input
             type='text'
@@ -106,15 +119,17 @@ export default function FormCheckout () {
             placeholder='New York'
             name='city'
             onChange={handleChange}
-            value={formsInfo.city}
-            required
+            value={formsInfo.city.value1}
+            className={(formsInfo.name.value1 === '' && wasTried) ? 'recquired' : ''}
           />
         </div>
         <div className='input-div'>
           <label
             htmlFor='Country'
+            className={(formsInfo.country.value1 === '' && wasTried) ? 'recquired' : ''}
           >
             Country
+            {(formsInfo.country.value1 === '' && wasTried) && <p>The field cannot be empty</p>}
           </label>
           <input
             type='text'
@@ -122,8 +137,8 @@ export default function FormCheckout () {
             placeholder='USA'
             name='country'
             onChange={handleChange}
-            value={formsInfo.country}
-            required
+            value={formsInfo.country.value1}
+            className={(formsInfo.name.value1 === '' && wasTried) ? 'recquired' : ''}
           />
         </div>
       </div>
@@ -132,7 +147,7 @@ export default function FormCheckout () {
         <p>Payment Method</p>
         <div className='payment-inputs'>
           <label
-            className={`checkbox ${formsInfo.payment === 'e-Money' && 'checked'}`}
+            className={`checkbox ${formsInfo.payment.value1 === 'e-Money' && 'checked'} ${(formsInfo.payment.value1 === '' && wasTried) ? 'recquired' : ''}`}
             htmlFor='e-money'
           >
             <input
@@ -146,7 +161,7 @@ export default function FormCheckout () {
             <p>e-Money</p>
           </label>
           <label
-            className={`checkbox ${formsInfo.payment === 'Cash' && 'checked'}`}
+            className={`checkbox ${formsInfo.payment.value1 === 'Cash' && 'checked'} ${(formsInfo.payment.value1 === '' && wasTried) ? 'recquired' : ''}`}
             htmlFor='cash'
           >
             <input
@@ -162,9 +177,9 @@ export default function FormCheckout () {
         </div>
       </div>
       <div className='info-div'>
-        {formsInfo.payment === 'Cash' && <img src={cashIcon} alt='Cash icon' />}
-        {formsInfo.payment === 'Cash' && <p>The 'Cash on Delivery' option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled</p>}
-        {formsInfo.payment === 'e-Money' &&
+        {formsInfo.payment.value1 === 'Cash' && <img src={cashIcon} alt='Cash icon' />}
+        {formsInfo.payment.value1 === 'Cash' && <p>The 'Cash on Delivery' option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled</p>}
+        {formsInfo.payment.value1 === 'e-Money' &&
           <div className='input-div'>
             <label
               htmlFor='E-money-number'
@@ -177,11 +192,11 @@ export default function FormCheckout () {
               placeholder='2342552421'
               name='eMoneyNumber'
               onChange={handleChange}
-              value={formsInfo.eMoneyNumber}
+              value={formsInfo.eMoneyNumber.value1}
               required
             />
           </div>}
-        {formsInfo.payment === 'e-Money' &&
+        {formsInfo.payment.value1 === 'e-Money' &&
           <div className='input-div'>
             <label
               htmlFor='E-Money-pin'
@@ -194,7 +209,7 @@ export default function FormCheckout () {
               placeholder='6891'
               name='eMoneyPin'
               onChange={handleChange}
-              value={formsInfo.eMoneyPin}
+              value={formsInfo.eMoneyPin.value1}
               required
             />
           </div>}
