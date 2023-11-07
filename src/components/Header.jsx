@@ -1,4 +1,4 @@
-import { React, useContext } from 'react'
+import { React, useContext, useState } from 'react'
 import logo from '../assets/icons/logo.svg'
 import carIcon from '../assets/icons/icon-cart.svg'
 import iconHamburger from '../assets/icons/icon-hamburger.svg'
@@ -6,13 +6,19 @@ import { Link } from 'react-router-dom'
 import './Header.css'
 import { useActualLocation } from '../hooks/useActualLocation'
 import { CartContext } from '../context/cart'
+import ProductsLinks from './ProductsLinks'
 
 export default function Header ({ setCartIsActive }) {
+  const { cart } = useContext(CartContext)
+  const [mobileMenu, setMobileMenu] = useState(false)
   const { actualLocation, pageTitle } = useActualLocation()
+
   const handleShowCart = () => {
     setCartIsActive(prevCartActive => !prevCartActive)
   }
-  const { cart } = useContext(CartContext)
+  const handleShowMobileMenu = () => {
+    setMobileMenu(prevCartActive => !prevCartActive)
+  }
 
   return (
     <>
@@ -30,7 +36,9 @@ export default function Header ({ setCartIsActive }) {
           <img
             src={iconHamburger} alt='Icon hambuger'
             className='icon-hamburger'
+            onClick={() => handleShowMobileMenu()}
           />
+          {mobileMenu && <ProductsLinks />}
           <section className='right-section'>
             <ul className='unordered-list__nav'>
               <li>

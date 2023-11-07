@@ -3,13 +3,49 @@ import checkIcon from '../assets/icons/check-icon.svg'
 import './SummaryModal.css'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../context/cart'
+import { FormsContext } from '../context/forms'
 
 export default function SummaryModal ({ setSummaryModal }) {
   const { cart, handleRemoveAll } = useContext(CartContext)
   const totalPrice = cart.reduce((acumulator, product) => acumulator + product.totalPrice, 0)
+  const { setFormsInfo } = useContext(FormsContext)
+
   const grandTotal = totalPrice + 99 + 95
+
   const toSummaryModal = () => {
     setSummaryModal(prevState => !prevState)
+    setFormsInfo({
+      name: {
+        value1: ''
+      },
+      email: {
+        value1: ''
+      },
+      phone: {
+        value1: ''
+      },
+      address: {
+        value1: ''
+      },
+      zip: {
+        value1: ''
+      },
+      city: {
+        value1: ''
+      },
+      country: {
+        value1: ''
+      },
+      payment: {
+        value1: ''
+      },
+      eMoneyNumber: {
+        value1: ''
+      },
+      eMoneyPin: {
+        value1: ''
+      }
+    })
     handleRemoveAll()
   }
 

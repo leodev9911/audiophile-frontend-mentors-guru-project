@@ -84,7 +84,7 @@ export default function FormCheckout () {
             name='address'
             onChange={handleChange}
             value={formsInfo.address.value1}
-            className={(formsInfo.address.value1 === '' && wasTried) && 'recquired'}
+            className={(formsInfo.address.value1 === '' && wasTried) ? 'recquired' : ''}
           />
         </div>
         <div className='input-div'>
@@ -138,7 +138,7 @@ export default function FormCheckout () {
             name='country'
             onChange={handleChange}
             value={formsInfo.country.value1}
-            className={(formsInfo.name.value1 === '' && wasTried) ? 'recquired' : ''}
+            className={(formsInfo.country.value1 === '' && wasTried) ? 'recquired' : ''}
           />
         </div>
       </div>
@@ -183,8 +183,10 @@ export default function FormCheckout () {
           <div className='input-div'>
             <label
               htmlFor='E-money-number'
+              className={(formsInfo.eMoneyNumber.value1 === '' && wasTried) ? 'recquired' : ''}
             >
               e-Money Number
+              {(formsInfo.eMoneyNumber.value1 === '' && wasTried) && <p>The field cannot be empty</p>}
             </label>
             <input
               type='text'
@@ -193,15 +195,17 @@ export default function FormCheckout () {
               name='eMoneyNumber'
               onChange={handleChange}
               value={formsInfo.eMoneyNumber.value1}
-              required
+              className={(formsInfo.eMoneyNumber.value1 === '' && wasTried) ? 'recquired' : ''}
             />
           </div>}
         {formsInfo.payment.value1 === 'e-Money' &&
           <div className='input-div'>
             <label
               htmlFor='E-Money-pin'
+              className={(formsInfo.eMoneyPin.value1 === '' && wasTried) ? 'recquired' : ''}
             >
-              e-Money PIN
+              e-Money PIN2
+              {(formsInfo.eMoneyPin.value1 === '' && wasTried) && <p>The field cannot be empty</p>}
             </label>
             <input
               type='text'
@@ -210,7 +214,7 @@ export default function FormCheckout () {
               name='eMoneyPin'
               onChange={handleChange}
               value={formsInfo.eMoneyPin.value1}
-              required
+              className={(formsInfo.eMoneyPin.value1 === '' && wasTried) ? 'recquired' : ''}
             />
           </div>}
       </div>

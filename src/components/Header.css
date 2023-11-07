@@ -88,9 +88,31 @@ nav {
     display: none;
 }
 @media(max-width: 900px) {
-    nav {
+    .nav__container {
+        position: relative;
         justify-content: flex-start;
         gap: 30px;
+    }
+    .nav__container .products-links__container {
+        position: absolute;
+        bottom: -320px;
+        left: 0;
+        flex-direction: row;
+        gap: 30px;
+        width: 100%;
+        background-color: white;
+        border-radius: 0px 0px 6px 6px;
+        box-shadow: -1px 6px 11px -2px rgba(0,0,0,0.75);
+    }
+    .nav__container .products-links__container .product-container {
+        justify-content: center;
+        height: 240px;
+        padding-top: 0;
+        background-color: transparent;
+    }
+    .nav__container .products-links__container .product-container > img {
+        position: initial;
+        transform: none;
     }
     .icon-hamburger {
         display: block;
@@ -103,5 +125,14 @@ nav {
     .page-title {
         font-size: 3rem;
         padding: 30px 0px;
+    }
+}
+@media(max-width: 680px) {
+    .nav__container .products-links__container {
+        padding: 40px 0px 40px 0px;
+        height: 550px;
+        flex-direction: column;
+        bottom: -630px;
+        overflow-y: auto;
     }
 }

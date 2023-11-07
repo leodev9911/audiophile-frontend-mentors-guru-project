@@ -21,15 +21,15 @@ import CartModal from '../components/CartModal'
 import { CartContext } from '../context/cart'
 import CartEmptyModal from '../components/CartEmptyModal'
 import { useCategory } from '../hooks/useCategory'
+import { useSizes } from '../hooks/useSizes'
 
 export default function App () {
   const [cartIsActive, setCartIsActive] = useState(false)
   const { cart } = useContext(CartContext)
   const [summaryModal, setSummaryModal] = useState(false)
   const { actualLocation, category } = useCategory()
-  const {
-    imgProduct
-  } = useImages()
+  const { imgProduct } = useImages()
+  const { actualWidth } = useSizes()
 
   const productsToShow = data.filter(product => product.category === category)
   let n = -1
@@ -69,7 +69,7 @@ export default function App () {
             path='/'
             element={
               <Home>
-                <ProductsLinks />
+                {actualWidth > 900 && <ProductsLinks />}
                 <HomeSection
                   speakerZX9P={speakerZX9P}
                   speakerZX7P={speakerZX7P}

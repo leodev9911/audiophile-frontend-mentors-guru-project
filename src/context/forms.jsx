@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 
 export const FormsContext = createContext()
 
@@ -70,8 +70,11 @@ export function FormsProvider ({ children }) {
         }
       }
     })
-    handleAllFormsValid()
   }
+
+  useEffect(() => {
+    handleAllFormsValid()
+  }, [formsInfo])
 
   return (
     <FormsContext.Provider
