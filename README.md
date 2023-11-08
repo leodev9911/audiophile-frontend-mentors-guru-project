@@ -45,9 +45,7 @@ Users should be able to:
 ![cart populated](./src/assets/Audiophile-ecommerce-website-cart-desktop.png)
 
 ### Links
-
-- Frontend Mentor URL: [Frontend Mentor](https://your-solution-url.com)
-- Live Site URL: [Audiophile ecommerce project](https://audiophile-ecommerce-ckm.netlify.app/)
+- Live Site URL: [Audiophile ecommerce project](https://audiophile-frontend-mentors-guru-project.vercel.app/)
 
 ## My process
 
