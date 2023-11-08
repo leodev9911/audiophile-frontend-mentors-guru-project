@@ -4,7 +4,7 @@ import './FormCheckout.css'
 import { FormsContext } from '../context/forms'
 
 export default function FormCheckout () {
-  const { formsInfo, handleChange, wasTried, isValid } = useContext(FormsContext)
+  const { formsInfo, handleChange, wasTried, isValid, handleAllFormsValid } = useContext(FormsContext)
 
   return (
     <section className='checkout-form'>
@@ -27,6 +27,7 @@ export default function FormCheckout () {
             onChange={handleChange}
             value={formsInfo.name.value1}
             className={(formsInfo.name.value1 === '' && wasTried) ? 'recquired' : ''}
+            onBlur={() => handleAllFormsValid()}
           />
         </div>
         <div className='input-div'>
@@ -46,6 +47,7 @@ export default function FormCheckout () {
             onChange={handleChange}
             value={formsInfo.email.value1}
             className={((formsInfo.email.value1 === '' && wasTried) || (formsInfo.email.value1 !== '' && !isValid())) ? 'recquired' : ''}
+            onBlur={() => handleAllFormsValid()}
           />
         </div>
         <div className='input-div'>
@@ -64,6 +66,7 @@ export default function FormCheckout () {
             onChange={handleChange}
             value={formsInfo.phone.value1}
             className={(formsInfo.name.value1 === '' && wasTried) ? 'recquired' : ''}
+            onBlur={() => handleAllFormsValid()}
           />
         </div>
       </div>
@@ -85,6 +88,7 @@ export default function FormCheckout () {
             onChange={handleChange}
             value={formsInfo.address.value1}
             className={(formsInfo.address.value1 === '' && wasTried) ? 'recquired' : ''}
+            onBlur={() => handleAllFormsValid()}
           />
         </div>
         <div className='input-div'>
@@ -103,6 +107,7 @@ export default function FormCheckout () {
             onChange={handleChange}
             value={formsInfo.zip.value1}
             className={(formsInfo.name.value1 === '' && wasTried) ? 'recquired' : ''}
+            onBlur={() => handleAllFormsValid()}
           />
         </div>
         <div className='input-div'>
@@ -121,6 +126,7 @@ export default function FormCheckout () {
             onChange={handleChange}
             value={formsInfo.city.value1}
             className={(formsInfo.name.value1 === '' && wasTried) ? 'recquired' : ''}
+            onBlur={() => handleAllFormsValid()}
           />
         </div>
         <div className='input-div'>
@@ -139,6 +145,7 @@ export default function FormCheckout () {
             onChange={handleChange}
             value={formsInfo.country.value1}
             className={(formsInfo.country.value1 === '' && wasTried) ? 'recquired' : ''}
+            onBlur={() => handleAllFormsValid()}
           />
         </div>
       </div>
@@ -156,7 +163,7 @@ export default function FormCheckout () {
               name='payment'
               value='e-Money'
               onChange={handleChange}
-              required
+              onBlur={() => handleAllFormsValid()}
             />
             <p>e-Money</p>
           </label>
@@ -170,7 +177,7 @@ export default function FormCheckout () {
               name='payment'
               value='Cash'
               onChange={handleChange}
-              required
+              onBlur={() => handleAllFormsValid()}
             />
             <p>Cash on delivery</p>
           </label>
@@ -196,6 +203,7 @@ export default function FormCheckout () {
               onChange={handleChange}
               value={formsInfo.eMoneyNumber.value1}
               className={(formsInfo.eMoneyNumber.value1 === '' && wasTried) ? 'recquired' : ''}
+              onBlur={() => handleAllFormsValid()}
             />
           </div>}
         {formsInfo.payment.value1 === 'e-Money' &&
@@ -204,7 +212,7 @@ export default function FormCheckout () {
               htmlFor='E-Money-pin'
               className={(formsInfo.eMoneyPin.value1 === '' && wasTried) ? 'recquired' : ''}
             >
-              e-Money PIN2
+              e-Money PIN
               {(formsInfo.eMoneyPin.value1 === '' && wasTried) && <p>The field cannot be empty</p>}
             </label>
             <input
@@ -215,6 +223,7 @@ export default function FormCheckout () {
               onChange={handleChange}
               value={formsInfo.eMoneyPin.value1}
               className={(formsInfo.eMoneyPin.value1 === '' && wasTried) ? 'recquired' : ''}
+              onBlur={() => handleAllFormsValid()}
             />
           </div>}
       </div>

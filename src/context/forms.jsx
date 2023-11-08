@@ -72,9 +72,9 @@ export function FormsProvider ({ children }) {
     })
   }
 
-  useEffect(() => {
-    handleAllFormsValid()
-  }, [formsInfo])
+  // useEffect(() => {
+  //   handleAllFormsValid()
+  // }, [formsInfo])
 
   return (
     <FormsContext.Provider
@@ -84,7 +84,8 @@ export function FormsProvider ({ children }) {
         wasTried,
         setWasTried,
         allFormsValid,
-        isValid
+        isValid,
+        handleAllFormsValid
       }}
     >
       {children}
